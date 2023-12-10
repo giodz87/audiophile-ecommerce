@@ -364,7 +364,7 @@ export default function Checkout({ cardsProduct }: checkprops) {
                       alt="delivery"
                       className="h-[48px] w-[48px]"
                     />
-                    <p className="text-black text-[15px] font-normal leading-[25px] opacity-50 w-[544px]">
+                    <p className="text-black text-[15px] font-normal w-[190px] leading-[25px] opacity-50 md:w-[544px]">
                       The ‘Cash on Delivery’ option enables you to pay in cash
                       when our delivery courier arrives at your residence. Just
                       make sure your address is correct so that your order will
