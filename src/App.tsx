@@ -43,7 +43,12 @@ function App() {
             <div className=" w-full  h-[870px] flex flex-col items-center justify-center bg-white absolute top-0 z-20 md:h-[340px]">
               <Shop />
             </div>
-            <div className=" fixed w-full h-[100vh] top-0 bg-black bg-opacity-50 z-10"></div>
+            <div
+              onClick={() => {
+                setShop(false);
+              }}
+              className=" fixed w-full h-[100vh] top-0 bg-black bg-opacity-50 z-10"
+            ></div>
           </div>
         ) : null}
 

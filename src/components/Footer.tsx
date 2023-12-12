@@ -9,7 +9,9 @@ export default function Footer() {
       <div className="flex flex-col items-center justify-center gap-[48px]  w-[100vw] bg-black  md:items-start md:px-[40px] xl:px-[165px]">
         <div className="h-[4px] w-[101px] bg-[#D87D4A]"></div>
         <div className="flex flex-col items-center justify-center gap-[48px] md:items-start md:gap-[32px] xl:flex-row xl:w-full xl:justify-between">
-          <img src={logo} alt="" />
+          <Link to={"/"}>
+            <img src={logo} alt="" className=" cursor-pointer" />
+          </Link>
           <div className="flex flex-col items-center justify-center  gap-[16px] md:flex-row md:gap-[34px]">
             <Link
               to={"/"}

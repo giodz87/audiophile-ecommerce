@@ -2,6 +2,7 @@ import data from "../../data.json";
 import { useParams, useNavigate } from "react-router-dom";
 import Shop from "../components/Shop";
 import BestAudio from "../components/BestAudio";
+import { Link } from "react-router-dom";
 
 interface Productprops {
   number: number;
@@ -37,6 +38,7 @@ export default function Product({
       item.slug.toLowerCase() === params.product?.toLowerCase() &&
       item.category === params.category
   );
+
   const navigate = useNavigate();
   const goBack = () => {
     navigate(-1);
@@ -44,10 +46,10 @@ export default function Product({
 
   return (
     <div className="flex flex-col items-center justify-center md:px-[39px]   ">
-      <div className="xl:w-[1110px] text-left justify-center items-start">
+      <div className="text-left justify-center items-start w-[330px] md:w-[690px] xl:w-[1110px] ">
         <button
           onClick={goBack}
-          className=" opacity-[0.5] text-[15px] text-[#000] font-medium pl-[%] mt-[16px] text-start md:mt-8 md:pl-0"
+          className=" opacity-[0.5] text-[15px] text-[#000] font-medium  mt-[16px] text-start md:mt-8 md:pl-0"
         >
           Go Back
         </button>
@@ -89,7 +91,7 @@ export default function Product({
                   }}
                 >
                   -
-                </button>{" "}
+                </button>
                 <p className=" text-black text-[13px] font-bold tracking-[1px]">
                   {number}
                 </p>
@@ -126,6 +128,7 @@ export default function Product({
                       setCardsProduct([...cardsProduct, newProduct]);
                     }
                   }
+                  setNumber(0);
                 }}
                 className=" w-[160px] h-[48px] bg-[#D87D4a] text-white text-[13px] font-bold  hover:bg-[#FBAF85]"
               >
@@ -226,35 +229,45 @@ export default function Product({
             YOU MAY ALSO LIKE{" "}
           </h2>
           <div className="flex flex-col gap-[56px] md:flex-row md:gap-[11px] xl:gap-[30px]">
-            {producData?.others.map((others, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center justify-center gap-[32px]"
-              >
-                <img
-                  src={"../" + others.image.mobile}
-                  alt=""
-                  className="w-[327px] h-[120px] rounded-[8px] md:hidden"
-                />
-                <img
-                  src={"../" + others.image.tablet}
-                  alt=""
-                  className=" hidden md:flex md:w-[223px] md:h-[318px] md:rounded-[8px] xl:hidden "
-                />
-                <img
-                  src={"../" + others.image.desktop}
-                  alt=""
-                  className=" hidden xl:flex xl:w-[350px] xl:h-[328px] xl:rounded-[8px] "
-                />
-                <p className=" text-black text-[24px] font-bold tracking-[1.7px] l  ">
-                  {" "}
-                  {others.name}
-                </p>
-                <button className=" w-[160px] h-[48px] bg-[#D87D4a] text-white text-[13px] font-bold hover:bg-[#FBAF85]">
-                  See Product
-                </button>
-              </div>
-            ))}
+            {producData?.others.map((item: any, index) => {
+              // const category = data.find((prod) => prod.name === item.slug)?.category;
+
+              const category = data.find(
+                (prod) => prod.slug === item.slug
+              )?.category;
+              return (
+                <div
+                  key={index}
+                  className="flex flex-col items-center justify-center gap-[32px]"
+                >
+                  <img
+                    src={"../" + item.image.mobile}
+                    alt=""
+                    className="w-[327px] h-[120px] rounded-[8px] md:hidden"
+                  />
+                  <img
+                    src={"../" + item.image.tablet}
+                    alt=""
+                    className=" hidden md:flex md:w-[223px] md:h-[318px] md:rounded-[8px] xl:hidden "
+                  />
+                  <img
+                    src={"../" + item.image.desktop}
+                    alt=""
+                    className=" hidden xl:flex xl:w-[350px] xl:h-[328px] xl:rounded-[8px] "
+                  />
+                  <p className="text-black text-[24px] font-bold tracking-[1.7px] leading-[32px]">
+                    {item.name}
+                  </p>
+
+                  <Link
+                    to={"/" + category + "/" + item.slug}
+                    className="flex items-center justify-center   w-[160px] h-[48px] bg-[#D87D4a] text-white text-[13px] font-bold hover:bg-[#FBAF85]"
+                  >
+                    See Product
+                  </Link>
+                </div>
+              );
+            })}
           </div>
         </section>
         <div className="pt-[50px]">

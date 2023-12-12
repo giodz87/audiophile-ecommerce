@@ -31,8 +31,18 @@ export default function CartBox({
   );
 
   return (
-    <div className="  flex flex-col items-center justify-start p-[24px] absolute  w-full h-full bg-black bg-opacity-50 z-10 md:items-end md:pr-12  xl:pr-40">
-      <div className="flex flex-col justify-between w-[327px] h-[487px] bg-[#fff] rounded-[8px] px-[28px] py-[32px] md:w-[377px] md:h-[480px] md:px-8">
+    <div
+      onClick={() => {
+        setCart(false);
+      }}
+      className="  flex flex-col items-center justify-start p-[24px] absolute  w-full h-full bg-black bg-opacity-50 z-10 md:items-end md:pr-12  xl:pr-40"
+    >
+      <div
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+        className="flex flex-col justify-between w-[327px] h-[487px] bg-[#fff] rounded-[8px] px-[28px] py-[32px] md:w-[377px] md:h-[480px] md:px-8"
+      >
         <div className="flex flex-row  w-full justify-between">
           <h3 className="text-[18px] font-bold tracking-[1.2px]">
             CART ({cardsProduct.length})

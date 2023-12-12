@@ -23,7 +23,9 @@ export default function Header({ cart, setCart, shop, setShop }: Headerprops) {
               }}
               alt=""
             />
-            <img src={logo} alt="" />
+            <Link to={"/"}>
+              <img src={logo} alt="" />
+            </Link>
             <div className="  hidden xl:flex flex-row items-center justify-center gap-[34px]">
               <Link
                 to={"/"}
