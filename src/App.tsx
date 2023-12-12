@@ -10,7 +10,7 @@ import CartBox from "./components/CartBox";
 import Shop from "./components/Shop";
 import ComplaintOrder from "./components/ComplaintOrder";
 import ScrollToTop from "./utils/ScrollOnTop";
-
+import { useEffect } from "react";
 function App() {
   const [cart, setCart] = useState(false);
   const [shop, setShop] = useState(false);
@@ -18,7 +18,16 @@ function App() {
   const [number, setNumber] = useState(0);
 
   const [cardsProduct, setCardsProduct] = useState<any>([]);
+  useEffect(() => {
+    const body = document.body;
+    if (shop) {
+      body.style.overflow = "hidden";
+    }
 
+    return () => {
+      body.style.overflow = "";
+    };
+  }, [shop]);
   return (
     <>
       <BrowserRouter>
@@ -47,7 +56,7 @@ function App() {
               onClick={() => {
                 setShop(false);
               }}
-              className=" fixed w-full h-[100vh] top-0 bg-black bg-opacity-50 z-10"
+              className=" fixed w-full h-[100vh] top-0 bg-black bg-opacity-50 z-10 overflow-hidden"
             ></div>
           </div>
         ) : null}

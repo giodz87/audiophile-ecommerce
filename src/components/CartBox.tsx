@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import { useEffect } from "react";
 interface Cartprops {
   number: number;
   setNumber: (number: number) => void;
@@ -30,12 +30,32 @@ export default function CartBox({
     0
   );
 
+  // const bodyH = () => {
+  //   const body = document.body;
+  //   if (cart) {
+  //     body.style.overflow = "hidden";
+  //   } else {
+  //     body.style.overflow = " ";
+  //   }
+  // };
+
+  useEffect(() => {
+    const body = document.body;
+    if (cart) {
+      body.style.overflow = "hidden";
+    }
+
+    return () => {
+      body.style.overflow = "";
+    };
+  }, [cart]);
+
   return (
     <div
       onClick={() => {
         setCart(false);
       }}
-      className="  flex flex-col items-center justify-start p-[24px] absolute  w-full h-full bg-black bg-opacity-50 z-10 md:items-end md:pr-12  xl:pr-40"
+      className="  flex flex-col items-center justify-start pt-[24px] absolute  w-[100vw] h-full  bg-black bg-opacity-50 z-10 md:items-end md:pr-12  xl:pr-40"
     >
       <div
         onClick={(e) => {
