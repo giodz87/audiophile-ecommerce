@@ -30,15 +30,6 @@ export default function CartBox({
     0
   );
 
-  // const bodyH = () => {
-  //   const body = document.body;
-  //   if (cart) {
-  //     body.style.overflow = "hidden";
-  //   } else {
-  //     body.style.overflow = " ";
-  //   }
-  // };
-
   useEffect(() => {
     const body = document.body;
     if (cart) {
