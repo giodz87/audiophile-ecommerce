@@ -16,8 +16,6 @@ export default function Summary({ cardsProduct, onSubmit }: checkprops) {
 
   const orderComplate = () => {
     onSubmit();
-
-    // navigate("/complaint-order");
   };
 
   return (

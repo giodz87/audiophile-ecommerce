@@ -129,6 +129,11 @@ export default function CartBox({
             to={"/checkout"}
             onClick={() => {
               setCart(!cart);
+
+              const filteredProducts = cardsProduct.filter(
+                (product: { count: number }) => product.count > 0
+              );
+              setCardsProduct(filteredProducts);
             }}
             className="w-[271px] h-[48px] bg-[#d87d4a] text-white text-[13px] font-bold tracking-[1px] flex items-center justify-center md:w-[313px]"
           >

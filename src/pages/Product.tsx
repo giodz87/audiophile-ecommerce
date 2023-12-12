@@ -230,8 +230,6 @@ export default function Product({
           </h2>
           <div className="flex flex-col gap-[56px] md:flex-row md:gap-[11px] xl:gap-[30px]">
             {producData?.others.map((item: any, index) => {
-              // const category = data.find((prod) => prod.name === item.slug)?.category;
-
               const category = data.find(
                 (prod) => prod.slug === item.slug
               )?.category;
